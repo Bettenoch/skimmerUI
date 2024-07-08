@@ -1,7 +1,7 @@
 # React + TypeScript + Vite
 <!-- logo -->
 <p align="center">
-  <img width='300' src="./assets/pdfai.jpg">
+  <img width='300' src="/public/vite.svg">
 </p>
 
 <!-- tag line -->
