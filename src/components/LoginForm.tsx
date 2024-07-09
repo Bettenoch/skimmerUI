@@ -11,7 +11,7 @@ const schema = z.object({
   password: z.string().min(6, 'Password must be at least 6 characters'),
 });
 
-const Login: React.FC = () => {
+const LoginForm: React.FC = () => {
   const { login } = useUserActions(); // Extract the login function from useUserActions
   const {
     control,
@@ -67,4 +67,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default LoginForm;
