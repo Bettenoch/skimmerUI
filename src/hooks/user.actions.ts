@@ -17,6 +17,10 @@ interface RegisterData {
   username: string;
   password: string;
   email: string;
+  first_name: string;
+  last_name: string;
+  bio?: string;
+  avatar?: string;
   // Add other necessary fields for registration
 }
 
