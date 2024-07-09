@@ -10,8 +10,8 @@ const schema = z.object({
   username: z.string().min(1, 'Username is required'),
   password: z.string().min(6, 'Password must be at least 6 characters'),
   email: z.string().email('Invalid email address'),
-  firstName: z.string().min(1, 'First name is required'),
-  lastName: z.string().min(1, 'Last name is required'),
+  first_name: z.string().min(1, 'First name is required'),
+  last_name: z.string().min(1, 'Last name is required'),
   bio: z.string().optional(),
   avatar: z.string().optional(),
 });
@@ -29,8 +29,13 @@ const RegistrationForm: React.FC = () => {
   const onSubmit = async (data: any) => {
     try {
       await registerUser(data); // Call the register function with form data
-    } catch (error) {
-      console.error('Registration error:', error);
+    } catch (error: any) {
+      if (error.response && error.response.data) {
+        // Display error messages from the backend
+        console.error('Registration error:', error.response.data);
+      } else {
+        console.error('Registration error:', error);
+      }
     }
   };
 
@@ -80,29 +85,29 @@ const RegistrationForm: React.FC = () => {
         )}
       />
       <Controller
-        name="firstName"
+        name="first_name"
         control={control}
         render={({ field }) => (
           <TextField
             {...field}
             label="First Name"
             variant="outlined"
-            error={!!errors.firstName}
-            helperText={errors.firstName ? (errors.firstName.message as string) : ''}
+            error={!!errors.first_name}
+            helperText={errors.first_name ? (errors.first_name.message as string) : ''}
             fullWidth
           />
         )}
       />
       <Controller
-        name="lastName"
+        name="last_name"
         control={control}
         render={({ field }) => (
           <TextField
             {...field}
             label="Last Name"
             variant="outlined"
-            error={!!errors.lastName}
-            helperText={errors.lastName ? (errors.lastName.message as string) : ''}
+            error={!!errors.last_name}
+            helperText={errors.last_name ? (errors.last_name.message as string) : ''}
             fullWidth
           />
         )}
