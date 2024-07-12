@@ -10,8 +10,8 @@ const About: React.FC = () => {
           <nav>
             <ul className="flex space-x-6">
               <li><a href="/" className="hover:text-yellow-500">Home</a></li>
-              <li><Link to="playground" className="hover:text-yellow-500">Playground</Link></li>
-              <li><a href="#contact" className="hover:text-yellow-500">Contact</a></li>
+              <li><Link to="/playground" className="hover:text-yellow-500">Playground</Link></li>
+              <li><Link to="/ragsagent" className="hover:text-yellow-500">Query</Link></li>
             </ul>
           </nav>
         </div>
