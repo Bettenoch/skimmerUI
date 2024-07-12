@@ -7,6 +7,7 @@ import ProtectedRoute from './routes/ProtectedRoute';
 import Playground from './pages/Playground';
 import Login from './pages/Login';
 import Registration from './pages/Registration';
+import RagsAgent from './pages/RagsAgent';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         
         <Route path="/login/" element={<Login/>} />
         <Route path="/register/" element={<Registration/>} />
+        <Route path="/ragsagent/" element={<RagsAgent />} />
         <Route path="/playground" element={<ProtectedRoute>
           <Playground />
         </ProtectedRoute>} />
