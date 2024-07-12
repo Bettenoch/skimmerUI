@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axiosService from "../helpers/AuthManager";
 
 // Define types for user data and auth
 interface Auth {
@@ -33,6 +34,8 @@ function useUserActions() {
     login,
     register,
     logout,
+    uploadPdf,
+    queryPdf,
   };
 
   // Login the user
@@ -56,6 +59,25 @@ function useUserActions() {
     localStorage.removeItem("auth");
     navigate("/login");
   }
+
+    // Upload PDF
+    async function uploadPdf(file: File, title: string) {
+      const formData = new FormData();
+      formData.append('title', title);
+      formData.append('file', file);
+  
+      const res = await axiosService.post(`${baseURL}/rags/`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      return res.data;
+    }
+  
+    async function queryPdf(pdfId: number, query: string) {
+      const res = await axiosService.post(`${baseURL}/rags/${pdfId}/query/`, { query });
+      return res.data;
+    }
 }
 
 // Get the user
