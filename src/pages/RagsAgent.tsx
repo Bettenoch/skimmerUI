@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import PDFQuery from '../components/PdfQuery'
+// import PdfQueryForm from '../components/PdfQueryForm'
+// import LlmForm from '../components/LlmForm'
+import PdfQueryForm from '../components/PdfQueryForm'
+
 
 const RagsAgent: React.FC = () => {
     return (
@@ -17,7 +20,7 @@ const RagsAgent: React.FC = () => {
                     </nav>
                 </div>
             </header>
-            <PDFQuery/>
+            <PdfQueryForm/>
         </div>
     )
 }
