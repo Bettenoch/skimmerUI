@@ -16,10 +16,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        
-        <Route path="/login/" element={<Login/>} />
-        <Route path="/register/" element={<Registration/>} />
-        <Route path="/ragsagent/" element={<RagsAgent />} />
+
+        <Route path="/login/" element={<Login />} />
+        <Route path="/register/" element={<Registration />} />
+        <Route path="/ragsagent/" element={<ProtectedRoute><RagsAgent /></ProtectedRoute>} />
         <Route path="/playground" element={<ProtectedRoute>
           <Playground />
         </ProtectedRoute>} />
