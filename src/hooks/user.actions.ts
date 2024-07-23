@@ -1,6 +1,5 @@
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import axiosService from "../helpers/AuthManager";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 // Define types for user data and auth
 interface Auth {
@@ -28,14 +27,12 @@ interface RegisterData {
 // Custom hook for user actions
 function useUserActions() {
   const navigate = useNavigate();
-  const baseURL = "http://localhost:8000/api";
+  const baseURL = 'http://localhost:8000/api';
 
   return {
     login,
     register,
     logout,
-    uploadPdf,
-    queryPdf,
   };
 
   // Login the user
@@ -43,7 +40,7 @@ function useUserActions() {
     const res = await axios.post(`${baseURL}/auth/login/`, data);
     // Registering the account and tokens in the store
     setUserData(res.data);
-    navigate("/");
+    navigate('/');
   }
 
   // Register the user
@@ -51,38 +48,19 @@ function useUserActions() {
     const res = await axios.post(`${baseURL}/auth/register/`, data);
     // Registering the account and tokens in the store
     setUserData(res.data);
-    navigate("/");
+    navigate('/');
   }
 
   // Logout the user
   function logout() {
-    localStorage.removeItem("auth");
-    navigate("/login");
+    localStorage.removeItem('auth');
+    navigate('/login');
   }
-
-    // Upload PDF
-    async function uploadPdf(file: File, title: string) {
-      const formData = new FormData();
-      formData.append('title', title);
-      formData.append('file', file);
-  
-      const res = await axiosService.post(`${baseURL}/rags/`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      return res.data;
-    }
-  
-    async function queryPdf(pdfId: number, query: string) {
-      const res = await axiosService.post(`${baseURL}/rags/${pdfId}/query/`, { query });
-      return res.data;
-    }
 }
 
 // Get the user
 function getUser(): any | null {
-  const authString = localStorage.getItem("auth");
+  const authString = localStorage.getItem('auth');
   if (authString) {
     const auth: Auth = JSON.parse(authString);
     return auth.user;
@@ -92,7 +70,7 @@ function getUser(): any | null {
 
 // Get the access token
 function getAccessToken(): string | null {
-  const authString = localStorage.getItem("auth");
+  const authString = localStorage.getItem('auth');
   if (authString) {
     const auth: Auth = JSON.parse(authString);
     return auth.access;
@@ -102,7 +80,7 @@ function getAccessToken(): string | null {
 
 // Get the refresh token
 function getRefreshToken(): string | null {
-  const authString = localStorage.getItem("auth");
+  const authString = localStorage.getItem('auth');
   if (authString) {
     const auth: Auth = JSON.parse(authString);
     return auth.refresh;
@@ -113,7 +91,7 @@ function getRefreshToken(): string | null {
 // Set the access, token and user property
 function setUserData(data: Auth) {
   localStorage.setItem(
-    "auth",
+    'auth',
     JSON.stringify({
       access: data.access,
       refresh: data.refresh,
@@ -122,4 +100,41 @@ function setUserData(data: Auth) {
   );
 }
 
-export { useUserActions, getUser, getAccessToken, getRefreshToken };
+// Refresh the access token
+async function refreshAccessToken(refreshToken: string) {
+  try {
+    const response = await axios.post('http://localhost:8000/api/auth/refresh/', {
+      refresh: refreshToken,
+    });
+    return response.data.access;
+  } catch (error) {
+    console.error('Error refreshing token', error);
+    return null;
+  }
+}
+
+// Get a valid access token
+async function getValidAccessToken() {
+  let accessToken = getAccessToken();
+  if (!accessToken) {
+    const refreshToken = getRefreshToken();
+    if (refreshToken) {
+      accessToken = await refreshAccessToken(refreshToken);
+      if (accessToken) {
+        const authString = localStorage.getItem('auth');
+        if (authString) {
+          const auth = JSON.parse(authString);
+          auth.access = accessToken;
+          localStorage.setItem('auth', JSON.stringify(auth));
+        }
+      } else {
+        console.error('User needs to log in again');
+      }
+    } else {
+      console.error('User is not authenticated');
+    }
+  }
+  return accessToken;
+}
+
+export { useUserActions, getUser, getAccessToken, getRefreshToken, getValidAccessToken };
