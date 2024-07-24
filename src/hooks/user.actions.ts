@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-// Define types for user data and auth
 interface Auth {
   access: string;
   refresh: string;
@@ -21,10 +20,8 @@ interface RegisterData {
   last_name: string;
   bio?: string;
   avatar?: string;
-  // Add other necessary fields for registration
 }
 
-// Custom hook for user actions
 function useUserActions() {
   const navigate = useNavigate();
   const baseURL = 'http://localhost:8000/api';
@@ -35,30 +32,24 @@ function useUserActions() {
     logout,
   };
 
-  // Login the user
   async function login(data: LoginData) {
     const res = await axios.post(`${baseURL}/auth/login/`, data);
-    // Registering the account and tokens in the store
     setUserData(res.data);
     navigate('/');
   }
 
-  // Register the user
   async function register(data: RegisterData) {
     const res = await axios.post(`${baseURL}/auth/register/`, data);
-    // Registering the account and tokens in the store
     setUserData(res.data);
     navigate('/');
   }
 
-  // Logout the user
   function logout() {
     localStorage.removeItem('auth');
     navigate('/login');
   }
 }
 
-// Get the user
 function getUser(): any | null {
   const authString = localStorage.getItem('auth');
   if (authString) {
@@ -68,7 +59,6 @@ function getUser(): any | null {
   return null;
 }
 
-// Get the access token
 function getAccessToken(): string | null {
   const authString = localStorage.getItem('auth');
   if (authString) {
@@ -78,7 +68,6 @@ function getAccessToken(): string | null {
   return null;
 }
 
-// Get the refresh token
 function getRefreshToken(): string | null {
   const authString = localStorage.getItem('auth');
   if (authString) {
@@ -88,7 +77,6 @@ function getRefreshToken(): string | null {
   return null;
 }
 
-// Set the access, token and user property
 function setUserData(data: Auth) {
   localStorage.setItem(
     'auth',
@@ -100,7 +88,6 @@ function setUserData(data: Auth) {
   );
 }
 
-// Refresh the access token
 async function refreshAccessToken(refreshToken: string) {
   try {
     const response = await axios.post('http://localhost:8000/api/auth/refresh/', {
@@ -113,7 +100,6 @@ async function refreshAccessToken(refreshToken: string) {
   }
 }
 
-// Get a valid access token
 async function getValidAccessToken() {
   let accessToken = getAccessToken();
   if (!accessToken) {
@@ -129,9 +115,13 @@ async function getValidAccessToken() {
         }
       } else {
         console.error('User needs to log in again');
+        // Optionally, redirect to login page
+        useNavigate()('/login');
       }
     } else {
       console.error('User is not authenticated');
+      // Optionally, redirect to login page
+      useNavigate()('/login');
     }
   }
   return accessToken;
