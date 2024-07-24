@@ -16,7 +16,7 @@ const schema = z.object({
 interface PDFUploadFormProps {}
 
 const LlmForm: React.FC<PDFUploadFormProps> = () => {
-  const { control, handleSubmit, formState: { errors }, reset } = useForm({
+  const { control, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(schema),
     defaultValues: {
       title: '',
