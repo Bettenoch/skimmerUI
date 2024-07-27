@@ -43,6 +43,11 @@ const About: React.FC = () => {
             </p>
           </div>
         </section>
+        <section className='h-screen'>
+          <object data="../assets/metagpt.pdf" type="application/pdf" width="100%" height="100%">
+            <p>Alternative text - include a link <a href="http://africau.edu/images/default/sample.pdf">to the PDF!</a></p>
+          </object>
+        </section>
 
         <section className="py-20">
           <h2 className="text-4xl font-bold text-center mb-12 text-yellow-500">Meet the Team</h2>
