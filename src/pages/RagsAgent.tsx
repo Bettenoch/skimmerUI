@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import PdfUpload from '../components/PdfUpload'
+// import PdfUpload from '../components/PdfUpload'
+import PdfTestUpload from '../components/PdfQuery'
 // import PdfQueryForm from '../components/PdfQueryForm'
 // import LlmForm from '../components/LlmForm'
 // import PdfQueryForm from '../components/PdfQueryForm'
@@ -22,7 +23,7 @@ const RagsAgent: React.FC = () => {
                     </nav>
                 </div>
             </header>
-            <PdfUpload/>
+            <PdfTestUpload/>
         </div>
     )
 }
