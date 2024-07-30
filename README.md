@@ -43,6 +43,7 @@
 
 ## Project Titles and Internal Titles
 - **Project Name**: Poetry Project
+- **Backend Link**: https://github.com/Bettenoch/skimmIt
 - **Internal Title**: PDF Query System with Agentic Rags
 
 ## Introduction
