@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useForm, Controller } from 'react-hook-form';
-import { TextField, Button, Rating, CircularProgress } from '@mui/material';
+import { TextField, Button, Rating } from '@mui/material';
 import { Viewer, Worker } from '@react-pdf-viewer/core';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 import '@react-pdf-viewer/core/lib/styles/index.css';
@@ -10,6 +10,7 @@ import { getUser, getValidAccessToken } from '../hooks/user.actions';
 import PageviewIcon from '@mui/icons-material/Pageview';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import { grey } from '@mui/material/colors';
+import LoadingAnimation from './LoadingAnimation';
 
 interface PdfUploadForm {
   title: string;
@@ -167,7 +168,7 @@ const PdfTestUpload: React.FC = () => {
               <div className="query-results flex-1 overflow-y-auto space-y-4">
                 {loading ? (
                   <div className="flex justify-center items-center h-full">
-                    <CircularProgress />
+                    <LoadingAnimation/>
                   </div>
                 ) : (
                   queryResults.map((item, index) => (
