@@ -18,7 +18,7 @@ const Layout = ({ children }: LayoutProps) => {
       </div>
 
       {/* Mobile Navigation */}
-      <div className='flex h-16 justify-between p-8 items-center fixed md:hidden navBg w-full z-50'>
+      <div className='flex h-16 justify-between p-8 items-center fixed md:hidden bg-slate-300/80 w-full z-50'>
         <Link to="/" className='flex items-center'>
           <img
             src="/icons/logo.svg"
