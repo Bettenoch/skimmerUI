@@ -184,3 +184,9 @@
     background-size: cover;
     background-repeat: no-repeat;
   }
+
+  .clip-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
