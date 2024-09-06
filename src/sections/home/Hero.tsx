@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
               <div className="flex-1">
                 <AnimatedText text={randomPrompt} />
               </div>
-              <button className="bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-bold py-2 px-4 ">
+              <button className="bg-[#996515] hover:bg-blue-700 rounded-lg text-white font-bold py-2 px-4 ">
                 search
               </button>
             </div>
