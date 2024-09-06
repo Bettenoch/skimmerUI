@@ -6,9 +6,14 @@ export const mainLinks = [
     },
     {
         imgUrl: "/icons/discover.svg",
-        route: "/about",
-        label: "About"
+        route: "/ragsagent",
+        label: "PdfAi"
     },
+    {
+      imgUrl: "/icons/microphone.svg",
+      route: "/playground",
+      label: "Playground"
+  },
     {
         imgUrl: "/icons/microphone.svg",
         route: "/services",
@@ -36,7 +41,7 @@ export const Features = [
       icon: "/icons/bulb.png", // Example icon, adjust as per your icon set or library
       headline: "AI-Powered Insights",
       description: {
-        text: "Unleash the full potential of your documents with cutting-edge AI technology. Our platform leverages RAGS, OpenAI, and Agentic pipelines to extract and analyze complex data, turning your PDFs into actionable insights in seconds. Say goodbye to manual data processing—our AI does the heavy lifting for you.",
+        text: "Use our Agentic pipelines to extract and analyze complex data, Turn your PDFs into actionable insights in seconds. Say goodbye to manual data processing—our AI does the heavy lifting for you.",
         benefit: "Focuses on the efficiency and depth of analysis that users gain, emphasizing how AI simplifies complex tasks.",
       },
     },
@@ -45,7 +50,7 @@ export const Features = [
       icon: "/icons/lightning.png", // Example icon, adjust as per your icon set or library
       headline: "Lightning-Fast Analysis",
       description: {
-        text: "Time is money. Our platform delivers results at lightning speed, allowing you to analyze your documents faster than ever before. Whether you’re processing a single page or a massive report, our system provides instant insights, helping you stay ahead of the competition.",
+        text: "Time is money. Our platform delivers results at lightning speed, allowing you to analyze your documents faster than ever before.",
         benefit: "Emphasizes speed and efficiency, appealing to users who value quick turnarounds and productivity gains.",
       },
     },
@@ -54,7 +59,7 @@ export const Features = [
       icon: "/icons/smartphone.png", // Example icon, adjust as per your icon set or library
       headline: "Intuitive User Experience",
       description: {
-        text: "Navigating our platform is a breeze, even for first-time users. With a clean, intuitive design, you can easily upload, analyze, and review your documents without any hassle. Spend less time figuring out the software and more time focusing on what really matters—your data.",
+        text: " Upload, analyze, and review your documents without any hassle. Spend less time figuring out the software and more time focusing on what really matters—your data.",
         benefit: "Highlights the ease of use, making the product approachable for users with varying technical skills.",
       },
     },
@@ -63,7 +68,7 @@ export const Features = [
       icon: "/icons/settings.png", // Example icon, adjust as per your icon set or library
       headline: "Tailored to Your Needs",
       description: {
-        text: "No two businesses are alike, and neither are their reporting needs. Our platform offers customizable reports, allowing you to adjust parameters and output formats to suit your specific requirements. Whether you need a detailed breakdown or a high-level overview, our reports provide the flexibility you need.",
+        text: "Whether you need a detailed breakdown or a high-level overview, our reports provide the flexibility you need.",
         benefit: "Focuses on personalization and flexibility, appealing to users who want control over how their data is presented.",
       },
     },
