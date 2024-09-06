@@ -27,7 +27,7 @@ module.exports = {
         'dark-blue-to-black-to-purple': 'linear-gradient(to right, #00308F, #000000, #1D1A6F)',
         // Light gradients
         'light': 'linear-gradient(to right, #F7F9F2, #F6F5F2)',
-        'light1': 'linear-gradient(to bottom, #CDF5FD, #D2E0FB)',//star
+        'light1': 'linear-gradient(to top, #CDF5FD, #D2E0FB)',//star
         'light2': 'linear-gradient(to bottom, #F9F5F6, #F9FBE7, #D2E0FB)',
         'light3': 'linear-gradient(to right, #E3F4F4, #F8F6F4, #F6F5F2)',
         'lightDark': 'linear-gradient(to right, #a0c4ff, #00308F)',//star
