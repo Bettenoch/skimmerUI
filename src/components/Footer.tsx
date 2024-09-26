@@ -22,7 +22,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* About Section */}
           <div>
-            <h2 className="text-2xl font-bold mb-4">About FetchIt</h2>
+            <h2 className="text-2xl font-bold mb-4">About DocuChat</h2>
             <p className="text-gray-300">
               FetchIt is a delivery service dedicated to bringing your products
               right to your doorstep with convenience and speed. We strive to
