@@ -14,9 +14,11 @@ export function Benefits() {
           <CarouselItem key={index} className=" md:basis-1/3 lg:basis-1/4 md:pl-8">
             <article
               key={item.id}
-              className="bg-[#071330] flex flex-col  w-full h-full rounded-t-md rounded-br-2xl"
+              className="relative bg-cover bg-center flex flex-col  w-full h-full rounded-t-md rounded-br-2xl"
+              style={{ backgroundImage: "url(/background/vector1.jpg)" }}
             >
-              <div className="max-w-md flex flex-col items-center p-2 md:p-4">
+              
+              <div className="relative max-w-md flex flex-col items-center p-2 md:p-4">
                 <h2 className="text-3xl text-[#996515] font-semibold text-center">{item.headline}</h2>
                 <div className="p-4">
                     <img src={item.icon} className="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16" alt="icon" />
