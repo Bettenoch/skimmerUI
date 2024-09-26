@@ -116,7 +116,7 @@ const PdfTestUpload: React.FC = () => {
   };
 
   return (
-    <div className="bg-gray-900 min-h-screen text-white p-2">
+    <div className="bg-gray-900 min-h-screen text-white pt-32">
       <div className="container mx-auto px-6">
         <div className="mb-8">
           <p className="mb-4">
@@ -145,7 +145,7 @@ const PdfTestUpload: React.FC = () => {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSelectedFile(e.target.files ? e.target.files[0] : null)}
               className="mb-4 bg-gray-700 border border-gray-600 rounded text-white p-2 w-full"
             />
-            <Button type="submit" variant="contained" color="primary" disabled={uploading} className="w-full">
+            <Button type="submit" sx={{ color: grey }} variant="contained" disabled={uploading} className="w-full">
               {uploading ? 'Uploading...' : 'Upload PDF'}
             </Button>
           </form>
