@@ -2,6 +2,7 @@ import Advert from "@/components/Advert";
 // import Showcase from "@/components/Showcase";
 import DoneIcon from "@mui/icons-material/Done";
 import Tag from "./Tag";
+import Workflow from "./Workflow";
 
 const Features = () => {
   return (
@@ -54,6 +55,9 @@ const Features = () => {
           </div>
           <div>
             <Tag/>
+          </div>
+          <div>
+            <Workflow/>
           </div>
         </div>
       </div>
